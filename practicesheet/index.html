@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    </link>
+</head>
+
+<body>
+
+    <div>
+        <fieldset>
+            <h1>Payment form</h1>
+            <p>Required fields are followed by*</p>
+            <h2>Contact information</h2>
+            <form>
+                <div style="margin-left:120px">
+                    <fieldset style="width:58%" id="title">
+                        <legend>Title</legend>
+
+                        <input type="radio" class="title" name="Mrs">
+                        <label for="Mrs">Mrs</label>
+                        <br>
+                        <input type="radio" class="title" name="Miss">
+                        <label for="Miss">Miss</label>
+                    </fieldset>
+                </div>
+                <div class="name">Name:*
+                    <input type="text" required id="password" placeholder="Jonas" id="text" class="text">
+                </div>
+                <div class="name">E-mail:*
+                    <input type="email" required id="password" placeholder="jonas@jonas.com" id="email" class="text">
+                </div>
+                <div class="name">Password:*
+                    <input type="password" required id="password" class="text">
+                </div>
+                <br><br><br>
+                <div>
+                    <h2>Payment information</h2>
+                </div>
+                <div class="name">Card type:
+                    <select name="cardtype" class="optiontype">
+                        <option value="" selected>Visa</option>
+                        <option value="MasterCard">Master Card</option>
+                        <option value="Visa Master">Visa Master</option>
+                    </select>
+                </div>
+                <div class="card"> Card Number:*
+                    <input type="text" required maxlength="16">
+                </div>
+                <br>
+                <div class="date">Expiration date:*
+                    <input type="date" required class="date">
+                    <p class="format">formatted as mm/yy</p>
+                </div>
+                <div id="payment"><button post type="submit">Validate the payment</button></div>
+
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

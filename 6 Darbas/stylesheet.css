@@ -1,0 +1,52 @@
+.border{
+    border: 
+    border color black;
+    border-style: double;
+    background-color: cadetblue;
+}
+.vardas {
+    color: gold;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+}
+header{
+    background-color: grey;
+}
+.bold{
+    color: black;
+    font-style: italic ;
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-style: dotted ;
+}
+.image{
+    font-size: small;
+    text-align: right;
+     float: right;
+}
+.seima{
+    text-shadow: 20mm;
+    
+}
+.pink{
+    color: pink;
+}
+.blue{
+    color: rgb(10, 37, 153);
+}
+.purple{
+    color: rgb(168, 69, 29);   
+}
+.grey{
+    color: green;
+}
+.Hilton{
+    font-style: oblique;
+    color: rgb(206, 50, 11);
+    text-transform: uppercase;
+}
+.nr{
+    text-decoration: underline;
+}

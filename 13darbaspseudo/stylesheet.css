@@ -1,0 +1,21 @@
+ul {
+    font-weight: bolder;
+}
+
+a:active {
+    color: rgb(189, 43, 89);
+}
+
+h1:hover {
+    color: blueviolet;
+}
+
+div li:nth-child(2n+1) {
+    background-color: chocolate;
+}
+
+ul li::first-letter {
+    font-style: italic;
+    text-decoration: dotted;
+    font-size: 30px;
+}

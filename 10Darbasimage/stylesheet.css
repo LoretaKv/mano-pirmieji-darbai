@@ -1,0 +1,27 @@
+html {
+    padding: 10px;
+    margin: 5px;
+    background-color: aquamarine;
+    text-align: center;
+
+}
+
+h1 {
+    text-transform: capitalize;
+}
+
+.gele {
+    border-radius: 20px;
+}
+
+.png {
+
+    object-fit: cover;
+    background-color: rgb(233, 31, 31);
+    border: 4px;
+    border-style: double;
+    border-color: aliceblue;
+    width: 400px;
+    height: 300px;
+    margin-left: 240px;
+}

@@ -1,0 +1,57 @@
+html {
+    background-color: blanchedalmond;
+}
+
+body {
+    max-width: 500px;
+    background-color: aliceblue;
+}
+
+header .greenblock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin left: 200px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.greenblock {
+    background-color: rgb(151, 229, 74);
+    border: 0px solid black;
+    border-top: 3px solid black;
+    width: 100%;
+    height: 100px;
+    padding: -5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: ;
+    margin: 30px;
+
+}
+
+main section:first-child {
+    margin-right: 10px;
+    flex: 2;
+}
+
+main section :last-child {
+    margin-left: 10px;
+    flex: 3
+}
+
+main :last-child img {
+    float: left;
+}

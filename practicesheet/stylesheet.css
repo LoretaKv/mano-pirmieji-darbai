@@ -1,0 +1,86 @@
+div fieldset {
+    border-radius: 20px;
+    width: 350px;
+    border-color: black;
+    padding-top: 0px;
+    padding-right: 2px;
+    margin-left: 20px;
+}
+
+#title {
+    border-color: azure;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    padding: 2px;
+    float: left;
+}
+
+#title input {
+
+    height: 10px;
+    border: 1px solid rgb(11, 11, 11);
+
+}
+
+#password {
+    border-color: red;
+}
+
+.name {
+    float: right;
+    padding-left: 20px;
+}
+
+.text {
+    width: 200px;
+    float: right;
+    padding: 3px;
+    margin: 3px;
+}
+
+.information {
+    margin-right:
+}
+
+.optiontype {
+    width: 20px;
+    padding-left: 50px;
+    padding-right: 60px;
+    margin-right: 100px;
+}
+
+
+.card {
+    float: right;
+    margin-right: 25px;
+    padding: 10px;
+}
+
+.date {
+    float: right;
+    padding-bottom: 1pxpx;
+    margin-bottom: 0rem;
+    margin-right: 50px;
+
+}
+
+.format {
+    font-style: italic;
+    padding-top: 1px;
+    margin-top: 3px;
+    margin-left: 0px;
+    padding-left: 0rem;
+
+}
+
+#payment {
+    text-align: center;
+
+}
+
+#payment :hover {
+    bottom: 10px;
+    background-color: brown;
+
+
+}
