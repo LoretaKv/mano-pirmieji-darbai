@@ -8,3 +8,24 @@
 .big-box:hover {
     width: 600px;
 }
+
+#flex-box {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    justify-content: space-between;
+    margin left 30px;
+    margin-right: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+
+}
+
+.seperator {
+    border-top: 1px solid #830ad4;
+    border-bottom: 1px solid #353535;
+    margin: 20px;
+    text-align: center;
+}
+}
