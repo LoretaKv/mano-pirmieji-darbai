@@ -215,6 +215,10 @@ button:hover {
 
     }
 
+    .main {
+        margin-right: 12px;
+    }
+
     .footer {
         width: 97%;
         height: 60px;
