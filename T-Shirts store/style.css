@@ -1,0 +1,31 @@
+html {
+    font-family: 'Dancing Script'
+}
+
+header {
+    color: rgb(10, 10, 10);
+    background-color: rgb(235, 230, 230);
+    width: 100%;
+    align-items: center;
+    padding-left: 5px;
+    border: 1px rgb(200, 194, 194) solid;
+    border-radius: 2px;
+    text-shadow: 2rem;
+    word-spacing: 0px;
+}
+
+header h1,
+h5 {
+    text-decoration: solid;
+}
+
+h5 {}
+
+
+ul {
+    list-style-type: none;
+    display: flex;
+    letter-spacing: 2px;
+    align-content: space-between;
+
+}
