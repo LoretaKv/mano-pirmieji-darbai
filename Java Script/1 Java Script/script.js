@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //event listener
 
 document.addEventListener("click", function () {
@@ -92,3 +93,10 @@ switch (weekDay) {
         break;
 }
 console.log(weekDay)
+=======
+document.addEventListener("click", function () {
+    console.log("paspausta ant puslapio");
+});
+//Comment
+
+>>>>>>> 018e2d7893a15bbbe55810c4346ffa2588f0dd7a
