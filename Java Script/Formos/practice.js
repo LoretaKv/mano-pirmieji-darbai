@@ -15,7 +15,6 @@ function myfunction(event) {
     document.querySelector('h1').textContent = result;
 }
 */
-/*
 const ageInput = document.getElementById("age");
 const form = document.querySelector("form");
 const priceDisplay = document.getElementById("price");
@@ -31,8 +30,8 @@ function handleFormSubmit(event) {
         priceDisplay.textContent = (0.5 * price).toFixed(2);
     } else {
         priceDisplay.textContent = price.toFixed(2);
-    }s
+    } s
 }
 
 form.addEventListener("submit", handleFormSubmit);
-*/
+* /
