@@ -1,46 +1,3 @@
-/*const people = [
-  {
-    name: "Petras",
-    age: "18",
-  },
-  {
-    name: "Jonas",
-    age: 15,
-  },
-  {
-    name: "Antanas",
-    age: 20,
-  },
-  {
-    name: "Urtė",
-    age: 10,
-  },
-  {
-    name: "Diana",
-    age: 25,
-  },
-  {
-    name: "Ieva",
-    age: 16,
-  },
-];
-
-//console.log(people.filter((x) => x.age >= 18));
-
-//console.log(people.filter((x) => x.age >= 18));
-
-console.log(people.filter((x) => x.age >= 18).map((person) => person.name));
-
-const myName = "Loreta";
-console.log(myName);*/
-
-//PRATIMAS 1.
-//Parašykite funkciją, kuri priims minutes (number) ir grąžins sekundes (string: "x seconds").
-//Pvz: fn(3) => "180 seconds".
-/*
-const fn = (n1) => n1 * 60 + " seconds";
-console.log(fn);*/
-/*
 const data = [
   {
     id: 1,
@@ -443,105 +400,32 @@ const data = [
     shirt_size: "3XL",
   },
 ];
-*/
 
-//console.log(data.filter((v) => v.car_year > 2000).map((x) => x.id));
-//console.log(data.filter((v) => v.gender === "Male"));;
-/*
-const time = (n1) => n1 * 60;
-console.log(time(6, +"seconds"));
+//Pasakykite skaičių kiek vyrų yra tarp šių duomenų (t.y. console'log skaičių).
 
-const age = (x) => x * 365;
+console.log(data.filter((x) => x.gender === "Male").length);
 
-console.log(age(60, +"dienu"));
+//Sukurkite masyvą, kuriuose būtų id visų žmonių, kurie turi
+//automobilius naujesnius nei 2000 metai.
 
-const squareNUmber = (n1) => n1 * n1;
-console.log(squareNUmber(8));
+console.log(data.filter((v) => v.car_year >= 2000).map((x) => x.id));
 
-const triangle = (x, y) => (x * y) / 2;
-console.log(triangle(6, 7));
+//Sukurkite masyvą visų žmonių, kurių marškinių dydžiai XS arba S;
+//ir surūšiuokite šį masyvą pagal vardus, A-Z tvarka (alfabetiškai).
 
-const lastLetter = (text) => text.charAt(text.lenth - 1);
+const newData = data
+  .filter((v) => v.shirt_size === "XS" || v.shirt_size === "S")
+  .map((v) => v.first_name)
+  .sort();
 
-console.log(lastLetter("Loreta"));
+//Pakoreguokite trečią pratimą, kad masyve matytųsi tik id, vardas bei marškinių dydis.
 
-const myName = (text) =>
-  text.split("").reverse("").join("").toLocaleLowerCase();
-
-console.log(myName("LORETA"));
-
-const myHusband = (text) => text.split("").reverse("").join("").toUpperCase();
-
-console.log(myHusband("gintaras"));
-
-const bigNumber = (nums) =>
-  nums.filter((x) => x < 0).sort((a, b) => b - a)[(-1, -20, -87)];
-console.log(bigNumber(2));*/
-
-/*
-const secunds = (x) => x * 60;
-console.log(secunds(8));
-
-const age = (n1) => n1 * 360;
-console.log(age(2));
-
-const square = (x) => x * x;
-console.log(square(9));
-
-const triangle = (x, y) => (x * y) / 2;
-console.log(triangle(2, 3));
-
-const myName = (text) => text.charAt(text.lenth - 1);
-console.log(myName("Jonas"));
-
-const friendName = (text) => text.split("").reverse().join("").toUpperCase();
-console.log(friendName("Loreta"));
-
-const randomNumbers = (get) => {
-  const generateNums = [];
-  for (let i = 0; i < get; i++) {
-    generateNums.push(Math.floor(Math.random() * 10) + 1);
-  }
-  return generateNums;
-};
-console.log(randomNumbers(5));
-
-const lotsOfNumbers = (give) => {
-  const numberArray = [];
-  for (i = 0; i < give; i++) {
-    numberArray.push(Math.floor(Math.random() * 10) + 1);
-  }
-  return numberArray;
-};
-console.log(lotsOfNumbers(6));
-
-const myNumbers = (noWay) => {
-  const massiveNumber = [];
-  for (i = 0; i < noWay; i++) {
-    massiveNumber.push(Math.floor(Math.random() * 10) + 1);
-  }
-  return massiveNumber;
-};
-console.log(myNumbers(10));
-
-const kidsAge = (children) => {
-  const kidsYear = [];
-  for (i = 0; i < children; i++) {
-    kidsYear.push(Math.floor(Math.random() * 10) + 1);
-  }
-  return kidsYear;
-};
-console.log(kidsAge(5));
-
-const hitNumber = (scale) => {
-  const route = [];
-  for (i = 0; i < scale; i++) {
-    route.push(Math.floor(Math.random() * 10) + 1);
-  }
-  return route;
-};
-console.log(hitNumber(4));
-
-const myClock = (n1, n2) => n1 + n2 > 100;
-
-console.log(myClock(4, 30));*/
+const myData = data
+  .filter((v) => v.shirt_size === "XS" || v.shirt_size === "S")
+  .map((x) => ({
+    id: x.id,
+    first_name: x.first_name,
+    shirt_size: x.shirt_size,
+  }))
+  .sort();
+console.log(myData);

@@ -31,6 +31,9 @@ const favouriteProducts = productNames.map(
 );
 favouriteProducts.sort((a, b) => (b > a ? 1 : -1));
 console.log(favouriteProducts);*/
-
+/*
 const myNumbers = [10, 20, 15, 20, 30, 56, 58];
-console.log(myNumbers.reduce((a, v) => a + v, 0));
+console.log(myNumbers.reduce((a, v) => a + v, 0));*/
+
+const userREgion = navigator.language.toLocaleLowerCase();
+console.log(userREgion);

@@ -30,7 +30,7 @@ const favoriteHotels = newHotels.map(
 console.log(favoriteHotels);*/
 
 //3. Sukurk Array su savo draugų amžiais (nuo 1 iki 99). Naudojant filter - prafiltruok tik tuos skaičius, kurie didesni arba lygūs 18.
-
+/*
 const age = [10, 5, 25, 36, 42, 21, 25];
 console.log(age.filter((x) => x >= 18));
 
@@ -71,4 +71,4 @@ const colors = ["Birute", "jonas", "jadvyga", "anele"];
 console.log(colors.filter((v) => v.charAt(0) === "j"));
 
 const myCities = ["Vilnius", "Klaipeda", "raseiniai", "alytus", "kaisiadorys"];
-console.log(myCities.every((v) => v.charAt(0) === v.charAt(0).toUpperCase()));
+console.log(myCities.every((v) => v.charAt(0) === v.charAt(0).toUpperCase()));*/
