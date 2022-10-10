@@ -75,3 +75,40 @@ const capitalCity = cities.every(
   (x) => x.charAt(0) === x.charAt(0).toUpperCase()
 );
 console.log(capitalCity);
+
+const classNames = ["peTRAS", "joNAS", "ANtanAS", "BirUTE"];
+const finalNames = classNames.map(
+  (x) => x.charAt(0).toUpperCase() + x.slice(1).toLocaleLowerCase()
+);
+
+console.log(finalNames);
+// const myFriends = friendNames.map(
+//   (v) => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase()
+// );
+// console.log(myFriends)
+
+const bedRooms = ["Delux", "suPErior", "STAndRT"];
+const roomBeds = bedRooms.map(
+  (v) => v.charAt(0).toUpperCase() + v.slice(1).toLocaleUpperCase()
+);
+console.log(roomBeds);
+
+const guestNames = ["John", "peTER", "aLExanDER"];
+
+console.log(
+  guestNames.map(
+    (v) => v.charAt(0).toUpperCase() + v.slice(1).toLocaleLowerCase()
+  )
+);
+
+const legoNames = ["Siauliai", "Prienai", "Kelme", ""];
+
+const capitalnames = legoNames.filter((v) => v.charAt(0) === "K");
+alert(capitalnames);
+
+console.log(
+  legoNames.filter((v) => v.charAt(0) === "B").some((x) => x.toLocaleLowerCase)
+);
+
+const customerAges = [23, 45, 56, 21, 12, 23, 12];
+console.log(customerAges.filter((v) => v >= 21));

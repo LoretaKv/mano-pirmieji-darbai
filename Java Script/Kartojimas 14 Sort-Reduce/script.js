@@ -44,3 +44,7 @@ console.log(myCars.reduce((a, v) => (v.length === 3 ? a + 1 : a), 0));
 const myCount = [12, 34, 35, 65, 67];
 const largestCount = myCount.reduce((a, v) => (a > v ? a : v));
 console.log(largestCount);*/
+
+const carNames = ["BMW", "MCB", "VWG", "Toyota", "AUDI"];
+const sortednames = carNames.reduce((a, v) => (v.length === 3 ? a + 1 : a), 0);
+console.log(sortednames);

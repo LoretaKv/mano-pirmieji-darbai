@@ -1,12 +1,19 @@
 //Sukurk variable 'milkPrice'. Su JS patikrink ir informuok vartotoją alert()
 //ar jam reikės centų, ar nereikės (t.y. ar skaičius sveikas).
-/*
-const milkPrice = 60.63;
+
+const milkPrice = 20.33;
 if (milkPrice.isinteger) {
-  alert("nereikes centu");
+  alert(`Jums reikes centu ${milkPrice.toFixed(2)}`);
 } else {
-  alert("reikes centu");
-}*/
+  alert("centu nereikes");
+}
+
+// const milkPrice = 60.63;
+// if (milkPrice.isinteger) {
+//   alert("nereikes centu");
+// } else {
+//   alert("reikes centu");
+// }*/
 /*
 Pakoreguok pirmą pratimą, kad alert taip pat ir 
 išmestų kainą - su dviem skaičias po kablelio (t.y. 3.00 Eur).*/
