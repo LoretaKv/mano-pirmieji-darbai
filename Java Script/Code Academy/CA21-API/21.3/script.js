@@ -25,7 +25,7 @@ const fetchGuestList = async () => {
       "https://boiling-reaches-93648.herokuapp.com/week-3/wedding"
     );
     if (response.ok) {
-      await response.json();
+      const guests = await response.json();
       finalGuestLIst(guests);
     }
   } catch (error) {
@@ -33,3 +33,18 @@ const fetchGuestList = async () => {
   }
 };
 await fetchGuestList();
+const fetchPartyGuests = async () => {
+  try {
+    const response = await fetch(
+      "https://boiling-reaches-93648.herokuapp.com/week-3/wedding"
+    );
+    if (response.ok) {
+      const guests = await response.json();
+      displayGuests(guests);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+fetchPartyGuests();
