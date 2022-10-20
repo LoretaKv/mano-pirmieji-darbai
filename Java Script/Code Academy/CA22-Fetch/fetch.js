@@ -99,7 +99,7 @@ createTableSkeleton();
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
   const searchString = document.getElementById("search").value.toLowerCase();
-  renderTable(
+  populateTable(
     state.robots.filter((robot) =>
       robot.name.toLowerCase().includes(searchString)
     )
