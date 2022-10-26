@@ -7,18 +7,21 @@ const getProducts = async () => {
   showProducts(productsList);
 };
 
-const showProducts = (products) => {
-  const productsContainer = document.createElement("div");
-  const productName = document.createElement("h3");
-  const productPrice = document.createElement("p");
-  const productImage = document.createElement("img");
+const showProducts = (productList) => {
+  productList.forEach((products) => {
+    const productsContainer = document.createElement("div");
+    const productName = document.createElement("h3");
+    const productPrice = document.createElement("p");
+    const productImage = document.createElement("img");
 
-  productsContainer.textContent = "Preke";
-  productName.textContent = products.title;
-  productPrice.textContent = +"€" + products.price;
-  productImage.src = products.image;
+    productsContainer.textContent = "Preke";
+    productName.textContent = products.title;
+    productPrice.textContent = "€" + products.price;
+    productImage.src = products.image;
 
-  productsContainer.append(productName, productPrice, productImage);
-  document.body.querySelector("#productsContainer").append(productsContainer);
+    productsContainer.append(productName, productPrice, productImage);
+    document.body.querySelector("#productsContainer").append(productsContainer);
+  });
 };
+
 await getProducts();
