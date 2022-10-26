@@ -1,24 +1,24 @@
-//Pasirašykite GET, kuris atsisiųs visus produktus ir atvaizduos vieną šalia kito (4 per eilutę);
+// //Pasirašykite GET, kuris atsisiųs visus produktus ir atvaizduos vieną šalia kito (4 per eilutę)
 
 const getProducts = async () => {
-  try {
-    const response = await fetch(" https://golden-whispering-show.glitch.me");
-    if (response.ok) {
-      const productList = await response.json();
-      return productList;
-    }
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await fetch("https://golden-whispering-show.glitch.me");
+  const productsList = await response.json();
+
+  showProducts(productsList);
 };
 
-const products = await getProducts();
 const showProducts = (products) => {
-  const productName = document.querySelector("#productName");
-  const productImage = document.querySelector("#productImg");
-  const productPrice = document.querySelector("#productPrice");
+  const productsContainer = document.createElement("div");
+  const productName = document.createElement("h3");
+  const productPrice = document.createElement("p");
+  const productImage = document.createElement("img");
+
+  productsContainer.textContent = "Preke";
   productName.textContent = products.title;
-  productImage.src = products.image;
   productPrice.textContent = +"€" + products.price;
+  productImage.src = products.image;
+
+  productsContainer.append(productName, productPrice, productImage);
+  document.body.querySelector("#productsContainer").append(productsContainer);
 };
-showProducts(products);
+await getProducts();
