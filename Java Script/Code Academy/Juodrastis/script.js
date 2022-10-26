@@ -1,20 +1,24 @@
-const fetchProducts = async () => {
-  const getProducts = async () => {
-    const response = await fetch("https://golden-whispering-show.glitch.me");
-    const productsList = await response.json();
+//Pasirašykite GET, kuris atsisiųs visus produktus ir atvaizduos vieną šalia kito (4 per eilutę);
 
-    return productsList;
-  };
-  const products = await getProducts();
-  products.forEach((product) => {
-    const productImage = document.querySelector("img");
-    const productTitle = document.querySelector("#title");
-    const productPrice = document.querySelector("#price");
-    productTitle.innerText = product.title;
-    productPrice.innerText = "€" + product.price;
-    productImage.src = product.image;
-    productImage.setAttribute("alt", "Property picture");
-  });
+const getProducts = async () => {
+  try {
+    const response = await fetch(" https://golden-whispering-show.glitch.me");
+    if (response.ok) {
+      const productList = await response.json();
+      return productList;
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-fetchProducts();
+const products = await getProducts();
+const showProducts = (products) => {
+  const productName = document.querySelector("#productName");
+  const productImage = document.querySelector("#productImg");
+  const productPrice = document.querySelector("#productPrice");
+  productName.textContent = products.title;
+  productImage.src = products.image;
+  productPrice.textContent = +"€" + products.price;
+};
+showProducts(products);
