@@ -1,5 +1,3 @@
-const ENDPOINT = "data.json";
-
 const express = require("express");
 
 const cors = require("cors");
@@ -13,6 +11,8 @@ app.use(cors());
 
 app.listen(PORT, () => console.log(`server is running on port:${PORT}`));
 
-app.get("/", (_, res) => {
-  res.send();
+app.get("/data.json", (req, res) => {
+  console.log(req.params.email);
+  //   const { id, first_name, last_name, email, gender, car } = req.body;
+  res.send().end();
 });
