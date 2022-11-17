@@ -1,5 +1,5 @@
-
-const data = JSON.parse(`[{
+const data = JSON.parse(`
+[{
     "id": 1,
     "first_name": "Kelwin",
     "last_name": "Pirouet",
@@ -350,4 +350,6 @@ const data = JSON.parse(`[{
     "gender": "Genderqueer",
     "car": "Porsche"
   }]
-  `)
+  `);
+
+module.exports = data;
