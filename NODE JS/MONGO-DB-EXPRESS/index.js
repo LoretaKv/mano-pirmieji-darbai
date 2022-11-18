@@ -24,8 +24,25 @@ app.get("/", async (_, res) => {
   return res.send(data);
 });
 
-app.post("/", (_, res) => {
-  res.send("Sveiki!");
+app.post("/", async (req, res) => {
+  const { firstName, lastName } = req.body;
+  console.log(req.body);
+  if (!firstName || !lastName) {
+    console.log(firstName);
+    res.status(404).send("firsName or lastname was not provided").end();
+    return;
+  }
+  try {
+    const con = await client.connect();
+    const dbRes = await con
+      .db("node-mongo-first-project")
+      .collection("users")
+      .insertOne({ name: "Petras", surname: "Slekys" });
+    await con.close();
+    return res.send(dbRes);
+  } catch (err) {
+    res.status(500).send({ err });
+  }
 });
 
 app.listen(PORT, () => console.log(`server is running on port:${PORT}`));
