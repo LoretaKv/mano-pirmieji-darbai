@@ -13,7 +13,7 @@ const users = [{ name: "Jonas" }, { name: "Tomas" }, { name: "Erika" }];
 app.use(express.json());
 app.use(cors());
 
-app.get("/", async (_, res) => {
+app.get("/users/:user", async (_, res) => {
   const connection = await client.connect();
   const data = await connection
     .db("node-mongo-first-project")
@@ -25,19 +25,17 @@ app.get("/", async (_, res) => {
 });
 
 app.post("/", async (req, res) => {
-  const { firstName, lastName } = req.body;
-  console.log(req.body);
-  if (!firstName || !lastName) {
-    console.log(firstName);
-    res.status(404).send("firsName or lastname was not provided").end();
-    return;
-  }
+  // const { firstName, lastName } = req.body;
+  // console.log(req.body);
+  // if (!firstName && !lastName) {
+  //   return res.status(404).send("No name was provided");
+  // }
   try {
     const con = await client.connect();
     const dbRes = await con
       .db("node-mongo-first-project")
       .collection("users")
-      .insertOne({ name: "Petras", surname: "Slekys" });
+      .insertOne({ firstName: "Greta", lastName: "Aleks" });
     await con.close();
     return res.send(dbRes);
   } catch (err) {
