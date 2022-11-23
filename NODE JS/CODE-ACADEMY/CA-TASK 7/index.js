@@ -1,14 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+const app = express();
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 
-const PORT = 5001;
-const app = express();
+const PORT = +process.env.PORT || 5003;
 const URI = process.env.URI;
 const client = new MongoClient(URI);
-
-const users = [{ name: "Jonas" }, { name: "Tomas" }, { name: "Erika" }];
 
 app.use(express.json());
 app.use(cors());
@@ -16,8 +14,8 @@ app.use(cors());
 app.get("/users/:user", async (_, res) => {
   const connection = await client.connect();
   const data = await connection
-    .db("node-mongo-first-project")
-    .collection("users")
+    .db("mongo-practice")
+    .collection("people")
     .find()
     .toArray();
   await connection.close();
@@ -25,17 +23,17 @@ app.get("/users/:user", async (_, res) => {
 });
 
 app.post("/", async (req, res) => {
-  // const { firstName, lastName } = req.body;
-  // console.log(req.body);
-  // if (!firstName && !lastName) {
-  //   return res.status(404).send("No name was provided");
-  // }
+  //   const { firstName, lastName, age } = req.body;
+  //   console.log(req.body);
+  //   if (!firstName && !lastName && !age) {
+  //     return res.status(404).send("Incorrect details was provided");
+  //   }
   try {
     const con = await client.connect();
     const dbRes = await con
-      .db("node-mongo-first-project")
-      .collection("users")
-      .insertOne({ firstName: "Greta", lastName: "Aleks" });
+      .db("mongo-practice")
+      .collection("people")
+      .insertOne({ firstName: "Gele", lastName: "Uoga", age: 18 });
     await con.close();
     return res.send(dbRes);
   } catch (err) {
@@ -43,4 +41,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`server is running on port:${PORT}`));
+app.listen(PORT, async () => {
+  console.log(`server is running on ${PORT}`);
+});
