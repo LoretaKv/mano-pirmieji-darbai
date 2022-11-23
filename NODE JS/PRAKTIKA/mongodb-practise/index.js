@@ -53,26 +53,26 @@ app.post("/order", async (_, res) => {
   }
 });
 
-app.patch("/order", async (req, res) => {
-  const { id } = req.params;
-  const { class, item, quantity } = req.body;
+// app.patch("/order", async (req, res) => {
+//   const { id } = req.params;
+//   const { class, item, quantity } = req.body;
 
-  // todo: test whether age, firstName, lastName are provided properly
-  try {
-    const con = await client.connect();
-    const db = con.db("orders-project");
+//   // todo: test whether age, firstName, lastName are provided properly
+//   try {
+//     const con = await client.connect();
+//     const db = con.db("orders-project");
 
-    const user = await db.collection("orders").findOneAndUpdate(
-      { _id: ObjectId(id) }
-      { $set: { class, item, quantity } }
-    );
+//     const user = await db.collection("orders").findOneAndUpdate(
+//       { _id: ObjectId(id) }
+//       { $set: { class, item, quantity } }
+//     );
 
-    await con.close();
+//     await con.close();
 
-    res.send(user).end();
-  } catch (error) {
-    return res.send({ error }).end();
-  }
-});
+//     res.send(user).end();
+//   } catch (error) {
+//     return res.send({ error }).end();
+//   }
+// });
 
 app.listen(PORT, () => console.log(`server is running on port:${PORT}`));
