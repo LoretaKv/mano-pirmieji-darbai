@@ -57,6 +57,7 @@ app.get("/users", async (req, res) => {
     const aggregationCursor = collection.aggregate(pipeline);
     for await (const doc of aggregationCursor) {
       docs.push(doc);
+      console.log(docs);
     }
     await con.close();
     res.send({ sortedUserNames, userNameCount, aggregationCursor }).end();
