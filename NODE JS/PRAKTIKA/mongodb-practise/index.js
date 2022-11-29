@@ -127,4 +127,31 @@ app.post("/orders", async (req, res) => {
   }
 });
 
+app.patch("/orders/:type", async (req, res) => {
+  const { type } = req.params;
+  console.log("type", type);
+  const { quantity } = req.body;
+  console.log("quantity", quantity);
+
+  if (!type) {
+    res.status(400).send("Product types were not provided.").end();
+    return;
+  }
+
+  try {
+    const con = await client.connect();
+    const orders = await con
+      .db("orders-project")
+      .collection("orders")
+      .updateMany({ type }, { $set: { quantity } });
+
+    await con.close();
+
+    res.send(orders).end();
+  } catch (error) {
+    res.send({ error }).end();
+    throw Error(error);
+  }
+});
+
 app.listen(PORT, () => console.log(`server is running on port:${PORT}`));
