@@ -15,19 +15,67 @@ const client = new MongoClient(URI, {
 app.use(express.json());
 app.use(cors());
 
-app.get;
+app.get("/users", async (req, res) => {
+  const { userName, orderCompleted } = req.body;
+  //   console.log(req.body);
+  //   if (!userName || typeof userName !== "string") {
+  //     res
+  //       .status(400)
+  //       .send("User Name name was not provided or is not a string")
+  //       .end();
+  //     return;
+  //   }
+  //   if (!orderCompleted || typeof orderCompleted !== "boolean") {
+  //     res.status(400).send("Order Completed is provided incorrectly").end();
+  //     return;
+  //   }
+  const pipeline = [
+    {
+      $match: {
+        userName,
+      },
+    },
+    {
+      $group: {
+        _id: "$userName",
+        orderCompleted: { $sum: "$true" },
+      },
+    },
+    {
+      $sort: {
+        totalOrders: -1,
+      },
+    },
+  ];
+  try {
+    const docs = [];
+    const con = await client.connect();
+    const db = con.db("orders-project");
+    const collection = db.collection("users");
+    const sortedUserNames = await collection.distinct("userName");
+    const userNameCount = await collection.count({});
+    const aggregationCursor = collection.aggregate(pipeline);
+    for await (const doc of aggregationCursor) {
+      docs.push(doc);
+    }
+    await con.close();
+    res.send({ sortedUserNames, userNameCount, aggregationCursor }).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
+  }
+});
 
 app.post("/users", async (req, res) => {
   const newUsers = req.body;
-  console.log(req.body);
   const areUsersProvided = Array.isArray(newUsers) && newUsers?.length;
 
   const isCorrectUser = (newUser) => {
-    const { name, orderCompleted } = newUser;
+    const { userName, orderCompleted } = newUser;
   };
 
   if (!areUsersProvided) {
-    return res.status(400).send("Please provide an array of objects").end();
+    return res.status(400).send("Please provide an array of users").end();
   }
 
   newUsers.forEach(isCorrectUser);
