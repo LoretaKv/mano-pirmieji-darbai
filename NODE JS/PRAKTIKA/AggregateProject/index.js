@@ -17,18 +17,8 @@ app.use(cors());
 
 app.get("/users", async (req, res) => {
   const { userName, orderCompleted } = req.body;
-  //   console.log(req.body);
-  //   if (!userName || typeof userName !== "string") {
-  //     res
-  //       .status(400)
-  //       .send("User Name name was not provided or is not a string")
-  //       .end();
-  //     return;
-  //   }
-  //   if (!orderCompleted || typeof orderCompleted !== "boolean") {
-  //     res.status(400).send("Order Completed is provided incorrectly").end();
-  //     return;
-  //   }
+  console.log(req.body);
+
   const pipeline = [
     {
       $match: {
@@ -37,8 +27,8 @@ app.get("/users", async (req, res) => {
     },
     {
       $group: {
-        _id: "$userName",
-        orderCompleted: { $sum: "$true" },
+        _id: "$orderCompleted",
+        totalOrders: { $count: "$true" },
       },
     },
     {
@@ -57,10 +47,9 @@ app.get("/users", async (req, res) => {
     const aggregationCursor = collection.aggregate(pipeline);
     for await (const doc of aggregationCursor) {
       docs.push(doc);
-      console.log(docs);
     }
     await con.close();
-    res.send({ sortedUserNames, userNameCount, aggregationCursor }).end();
+    res.send({ sortedUserNames, userNameCount, docs }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);
