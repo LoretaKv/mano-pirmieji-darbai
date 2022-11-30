@@ -15,27 +15,30 @@ const client = new MongoClient(URI, {
 app.use(express.json());
 app.use(cors());
 
-app.get("/users", async (req, res) => {
-  const { userName, orderCompleted } = req.body;
+app.get("/users/:userName", async (req, res) => {
+  const { userName } = req.params;
+  const { orderCompleted } = req.body;
   console.log(req.body);
 
   const pipeline = [
     {
       $match: {
         userName,
+        // $regex: userName,
+        // $options: "i",
       },
     },
-    {
-      $group: {
-        _id: "$orderCompleted",
-        totalOrders: { $count: "$true" },
-      },
-    },
-    {
-      $sort: {
-        totalOrders: -1,
-      },
-    },
+    // {
+    //   $group: {
+    //     _id: "$orderCompleted",
+    //     totalOrders: { $count: },
+    //   },
+    // },
+    // {
+    //   // $sort: {
+    //   totalOrders: -1,
+    // },
+    // },
   ];
   try {
     const docs = [];
