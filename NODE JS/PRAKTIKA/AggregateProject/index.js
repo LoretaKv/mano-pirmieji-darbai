@@ -70,9 +70,6 @@ app.post("/users", async (req, res) => {
 
   newUsers.forEach(isCorrectUser);
 
-  // identiska kaip virs jos
-  // newOrders.forEach((newOrder) => isCorrectOrder(newOrder));
-
   try {
     const con = await client.connect();
     const user = await con
