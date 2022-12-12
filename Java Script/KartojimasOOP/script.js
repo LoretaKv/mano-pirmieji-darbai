@@ -3,7 +3,7 @@ function Car(name, power, year, introduce) {
     (this.power = power),
     (this.year = year),
     (this.introduce = function () {
-      alert("Hiyou have new" + this.name);
+      alert("Hi you have new" + this.name);
     });
 }
 const nojusCar = new Car("BMW", 20, 2022);

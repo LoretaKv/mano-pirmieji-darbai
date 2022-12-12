@@ -13,5 +13,6 @@ const getPost = async (postNumber) => {
     console.error(error);
   }
 };
+console.log(getPost);
 
 export { getPost };

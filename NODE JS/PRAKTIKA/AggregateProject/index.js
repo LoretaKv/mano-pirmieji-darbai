@@ -18,27 +18,24 @@ app.use(cors());
 app.get("/users/:userName", async (req, res) => {
   const { userName } = req.params;
   const { orderCompleted } = req.body;
-  console.log(req.body);
 
   const pipeline = [
     {
       $match: {
-        userName,
-        // $regex: userName,
-        // $options: "i",
+        userName: { $regex: userName, $options: "i" },
       },
     },
-    // {
-    //   $group: {
-    //     _id: "$orderCompleted",
-    //     totalOrders: { $count: },
-    //   },
-    // },
-    // {
-    //   // $sort: {
-    //   totalOrders: -1,
-    // },
-    // },
+    {
+      $group: {
+        _id: "$userName",
+        totalOrders: { $count: {} },
+      },
+    },
+    {
+      $sort: {
+        totalOrders: -1,
+      },
+    },
   ];
   try {
     const docs = [];
