@@ -23,11 +23,11 @@ app.get("/users/:user", async (_, res) => {
 });
 
 app.post("/", async (req, res) => {
-  //   const { firstName, lastName, age } = req.body;
-  //   console.log(req.body);
-  //   if (!firstName && !lastName && !age) {
-  //     return res.status(404).send("Incorrect details was provided");
-  //   }
+  const { firstName, lastName, age } = req.body;
+  console.log(req.body);
+  if (!firstName && !lastName && !age) {
+    return res.status(404).send("Incorrect details was provided");
+  }
   try {
     const con = await client.connect();
     const dbRes = await con
