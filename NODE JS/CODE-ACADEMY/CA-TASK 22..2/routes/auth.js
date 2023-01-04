@@ -2,7 +2,7 @@ import express from "express";
 import mysql from "mysql2/promise";
 import Joi from "joi";
 import bcrypt from "bcryptjs";
-import { MYSQL_CONFIG } from "../../config.js";
+import { MYSQL_CONFIG } from "../src/config.js";
 
 const router = express.Router();
 
