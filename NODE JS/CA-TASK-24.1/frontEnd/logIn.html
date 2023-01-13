@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2>Please Log In:</h2>
+      <nav>
+        <a href="./register.html">Register</a>
+        <a href="./index.html">Home</a>
+      </nav>
+    </header>
+
+    <form id="loginForm">
+      <input id="emailInput" type="email" placeholder="Email:" required />
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Password:"
+        required
+      />
+      <button class="submitButton" type="submit">Log In</button>
+    </form>
+    <script type="module" src="./modules/logIn.js"></script>
+  </body>
+</html>

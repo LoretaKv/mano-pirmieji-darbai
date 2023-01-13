@@ -1,5 +1,5 @@
 import express from "express";
-import mysql from "mysql2/promise";
+import mysql from "mysql2/promise.js";
 import Joi from "joi";
 import bcrypt from "bcryptjs";
 import { MYSQL_CONFIG } from "../src/config.js";
@@ -18,51 +18,23 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ error: "Incorrect data sent" }).end();
   }
-  console.log(userData);
+  console.log(req.body);
   try {
     const hashedPassword = bcrypt.hashSync(userData.password);
 
     const con = await mysql.createConnection(MYSQL_CONFIG);
     const [data] = await con.execute(
-      `INSERT INTO users (email, password) VALUES (${mysql.escape(
+      `INSERT INTO allUsers (email, password) VALUES (${mysql.escape(
         userData.email
       )}, '${hashedPassword}')`
     );
-    console.log(data);
-
     await con.end();
 
-    return res.send().end();
+    return res.send(data).end();
   } catch (error) {
     return res.status(500).send({ error: "Unexpected error" });
   }
 });
-
-// export const registerUser = async (req, res) => {
-//   let userData = req.body;
-//   try {
-//     userData = await userSchema.validateAsync(userData);
-//   } catch (error) {
-//     return res.status(400).send({ error: error.message }).end();
-//   }
-
-//   try {
-//     const hashedPassword = bcrypt.hashSync(userData.password);
-
-//     const con = await mysql.createConnection(MYSQL_CONFIG);
-//     await con.execute(
-//       `INSERT INTO users (email, password) VALUES (${mysql.escape(
-//         userData.email
-//       )}, '${hashedPassword}')`
-//     );
-
-//     await con.end();
-
-//     return res.status(200).send("User registered successfully").end(); // res.send(data)
-//   } catch (error) {
-//     return res.status(500).send(error.message);
-//   }
-// };
 
 router.post("/login", async (req, res) => {
   let userData = req.body;

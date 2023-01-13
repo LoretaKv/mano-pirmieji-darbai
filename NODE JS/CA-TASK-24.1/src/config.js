@@ -9,5 +9,5 @@ export const MYSQL_CONFIG = {
   port: +process.env.port,
 };
 
-export const PORT = process.env.SERVERPORT || 5004;
-export const jwt_Secret = process.env.JWT_SECRET;
+export const PORT = process.env.SERVERPORT || 5001;
+export const jwtSecret = process.env.jwt_secret;
