@@ -1,5 +1,8 @@
 import dotenv from "dotenv";
+
 dotenv.config();
+
+export const PORT = process.env.serverPort || 5000;
 
 export const MYSQL_CONFIG = {
   host: process.env.host,
@@ -8,6 +11,3 @@ export const MYSQL_CONFIG = {
   database: process.env.database,
   port: +process.env.port,
 };
-
-export const PORT = process.env.SERVERPORT || 5004;
-export const jwt_Secret = process.env.JWT_SECRET;

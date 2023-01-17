@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", (event) => {
 
       localStorage.setItem("token", userData.token);
 
-      alert("Succesuly logged in");
+      window.location.assign(`./index.html`);
     })
 
     .catch((error) => console.log(error));
