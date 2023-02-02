@@ -11,7 +11,7 @@ export const RandomNumberGenerator = () => {
     // setIsLoading(true);
 
     const products = fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-      (result) => result
+      (result) => result.json()
     );
 
     setTimeout(() => {

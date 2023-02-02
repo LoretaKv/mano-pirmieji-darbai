@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+
+  margin: 20px;
+  display: grid;
+  grid-template-rows: (5, auto);
+  gap: 30px;
+  color: blue;
+  border: 2px solid black;
+}
+.user-container {
+  margin: 20px;
+  display: grid;
+  grid-template-rows: (5, auto);
+  gap: 30px;
+  color: blue;
+  border: 2px solid;
+}

@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
+import { GetToDos } from "./components/Ca-5-todos";
+import { GetProducts } from "./components/FetchItems";
+import { GetProductsAxios } from "./components/GetProductsAxios";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p></p>
-      </header>
+      {/* <GetProducts /> */}
+      {/* <GetProductsAxios /> */}
+      <GetToDos />
     </div>
   );
 }
