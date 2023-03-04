@@ -7,4 +7,4 @@ const INITIAL_VALUE = {
   dispatch: () => {},
 } as const;
 
-export const ProductsContexts = createContext<TProductsContext>(INITIAL_VALUE);
+export const ProductsContext = createContext<TProductsContext>(INITIAL_VALUE);
