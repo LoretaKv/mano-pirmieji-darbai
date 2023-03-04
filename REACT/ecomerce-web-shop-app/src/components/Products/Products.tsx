@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "..";
 import axios from "axios";
 import { Product } from "./Product";
+import { Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 export const Products = () => {
   const { dispatch, fetchedProducts } = useContext(ProductsContext);
@@ -26,12 +28,24 @@ export const Products = () => {
       {isLoading ? (
         <h2>Loading...</h2>
       ) : (
-        <div>
+        <Box>
           <h1>PRODUCTS</h1>
-          {fetchedProducts.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-        </div>
+          <Grid
+            sx={{
+              p: 2,
+              bgcolor: "background.default",
+              display: "grid",
+              gridTemplateColumns: { md: "1fr 1fr 1fr 1fr" },
+              gap: 5,
+              maxHeight: "100px",
+              maxWidth: 3000,
+            }}
+          >
+            {fetchedProducts.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+          </Grid>
+        </Box>
       )}
     </>
   );
