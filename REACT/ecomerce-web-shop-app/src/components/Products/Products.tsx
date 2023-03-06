@@ -28,17 +28,21 @@ export const Products = () => {
       {isLoading ? (
         <h2>Loading...</h2>
       ) : (
-        <Box>
-          <h1>PRODUCTS</h1>
+        <Box
+          sx={{
+            p: 2,
+            bgcolor: "background.default",
+            justifyContent: "center",
+          }}
+        >
           <Grid
             sx={{
               p: 2,
               bgcolor: "background.default",
               display: "grid",
               gridTemplateColumns: { md: "1fr 1fr 1fr 1fr" },
-              gap: 5,
-              maxHeight: "100px",
-              maxWidth: 3000,
+              gap: 4,
+              textAlign: "center",
             }}
           >
             {fetchedProducts.map((product) => (
