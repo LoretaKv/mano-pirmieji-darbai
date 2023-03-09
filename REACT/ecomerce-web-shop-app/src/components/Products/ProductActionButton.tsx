@@ -1,6 +1,4 @@
 import { Button } from "@mui/material";
-import { alignProperty } from "@mui/material/styles/cssUtils";
-import { textAlign } from "@mui/system";
 import { FC, useContext } from "react";
 import { ProductsContext } from "../ProductsContext";
 
